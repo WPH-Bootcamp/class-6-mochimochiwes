@@ -19,14 +19,14 @@
 
 @function get-color($type, $level) {
   // Check if $type exists in the $colors map
-  @if map-has-key($colors, $type) {
+  @if map.has-key($colors, $type) {
     // Get the map for the given $type
-    $type-map: map-get($colors, $type);
+    $type-map: map.get($colors, $type);
 
     // Check if $level exists in the $type-map
-    @if map-has-key($type-map, $level) {
+    @if map.has-key($type-map, $level) {
       // Return the color
-      @return map-get($type-map, $level);
+      @return map.get($type-map, $level);
     } @else {
       // Warn if $level is not valid
       @warn "Invalid color level `#{$level}` for type `#{$type}`.";
